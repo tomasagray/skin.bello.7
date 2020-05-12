@@ -2,7 +2,10 @@
 <window  id="25">
 	<defaultcontrol always="true">50</defaultcontrol>
 	<backgroundcolor>bgcolor</backgroundcolor>
-	<views>50,66,661,51,52,56,560,562,561,55,64,57,53,54,58,580,65,59</views>
+	<!-- Added: 839 (Matches) & 365 (Competitions) -->
+	<views>50,66,839,365,661,51,52,56,560,562,561,55,64,57,53,54,58,580,65,59</views>
+	<include>Matches</include>
+	<include>Competitions</include>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + Library.HasContent(TVShows)">RunScript(script.tv.show.next.aired,backend=True)</onload>
 	<onload condition="String.IsEmpty(Skin.String(ListViewWideThumbMovies))">Skin.SetString(ListViewWideThumbMovies,1)</onload>
 	<onload condition="String.IsEmpty(Skin.String(GalleryViewWideThumbMovies))">Skin.SetString(GalleryViewWideThumbMovies,1)</onload>
@@ -31,7 +34,6 @@
 				<include>OptionsTopMenuVars</include>
 				<control type="button" id="2">
 					<description>View as</description>
-					<label></label>
 					<include>TopLeftMenusButton</include>
 				</control>
 				<control type="button" id="290">

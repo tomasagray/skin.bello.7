@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include file="ViewsMatches.xml" />		<!-- My addition -->
 	<include file="ViewsVideos.xml" />
 	<include file="ViewsMusic.xml" />
 	<include file="ViewsPictures.xml" />
@@ -11,6 +12,10 @@
 		<control type="group">
 			<include>InfoDialogsVisible_ZoomAnimation</include>
 			<include>ListView_Videos</include> <!-- id = 50 -->
+			<!-- === My additions === -->
+			<include condition="!Skin.HasSetting(MatchViewVideos)">MatchView_VideoFiles</include> <!-- id = 839 -->
+			<include condition="!Skin.HasSetting(CompetitionViewVideos)">CompetitionView_VideoFiles</include> <!-- id = 365 -->
+			<!-- === End my additions === -->
 			<include condition="!Skin.HasSetting(BelloViewVideos)">BelloView_VideoLibrary</include> <!-- id = 66 -->
 			<include condition="!Skin.HasSetting(BelloViewVideos)">BelloView_VideoFiles</include> <!-- id = 661 -->
 			<include condition="!Skin.HasSetting(SlideViewVideos)">SlideView_Videos</include> <!-- id = 51 -->
@@ -151,11 +156,8 @@
 			<top>165</top>
 			<width>6</width>
 			<height>425</height>
-			<texturesliderbackground></texturesliderbackground>
 			<texturesliderbar border="0,14,0,14">views/scrollbar/scrollbar.png</texturesliderbar>
 			<texturesliderbarfocus border="0,14,0,14">views/scrollbar/scrollbar.png</texturesliderbarfocus>
-			<textureslidernib></textureslidernib>
-			<textureslidernibfocus></textureslidernibfocus>
 			<onleft>9111</onleft>
 			<onright>50</onright>
 			<showonepage>false</showonepage>
@@ -731,11 +733,8 @@
 			<top>100</top>
 			<width>6</width>
 			<height>488</height>
-			<texturesliderbackground></texturesliderbackground>
 			<texturesliderbar border="0,14,0,14">views/scrollbar/scrollbar.png</texturesliderbar>
 			<texturesliderbarfocus border="0,14,0,14">views/scrollbar/scrollbar.png</texturesliderbarfocus>
-			<textureslidernib></textureslidernib>
-			<textureslidernibfocus></textureslidernibfocus>
 			<onleft>560</onleft>
 			<onright>9444</onright>
 			<showonepage>false</showonepage>

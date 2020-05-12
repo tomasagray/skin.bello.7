@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+
+    <!-- ============================ -->
+    <!-- ==== Matches View "839" ==== -->
+    <!-- ============================ -->
+    <include name="MatchView_VideoFiles">
+        <control type="group" id="5335">
+            <include>CommonViews_VerticalAnimation</include>
+            <viewtype label="Matches">List</viewtype>
+            <control type="list" id="839">
+                <viewtype label="Match List">List</viewtype>
+                <include>ListViewVars</include>
+                <include>ListView_Arrows</include>
+                <itemlayout height="140" width="1200" condition="!$EXP[IsDirectory]">
+                    <!-- === Unselected Item Background === -->
+                    <!-- Directory -->
+                    <control type="image">
+                        <posx>100</posx>
+                        <posy>20</posy>
+                        <width>975</width>
+                        <height>80</height>
+                        <texture>thumbs/bg_unselected_event.png</texture>
+                        <visible>$EXP[IsDirectory]</visible>
+                    </control>
+                    <!-- Event Date -->
+                    <control type="image">
+                        <posx>100</posx>
+                        <posy>0</posy>
+                        <width>120</width>
+                        <height>120</height>
+                        <texture>thumbs/bg_unselected_date.png</texture>
+                        <visible>!$EXP[IsDirectory]</visible>
+                    </control>
+                    <!-- Event -->
+                    <control type="image">
+                        <posx>230</posx>
+                        <posy>0</posy>
+                        <width>850</width>
+                        <height>120</height>
+                        <texture>thumbs/bg_unselected_event.png</texture>
+                        <visible>!$EXP[IsDirectory]</visible>
+                    </control>
+
+                    <!-- === Competition Clearlogo === -->
+                    <include>CompetitionEmblem_View</include>
+
+                    <!-- === Event Layout === -->
+                    <include>ListView_Directory</include>
+                    <include>ListView_Teams</include>
+                    <include>ListView_Highlights</include>
+                </itemlayout>
+                <focusedlayout height="140" width="1200">
+                    <!-- === Selected Item Background === -->
+                    <!-- Directory -->
+                    <control type="image">
+                        <posx>100</posx>
+                        <posy>20</posy>
+                        <width>975</width>
+                        <height>80</height>
+                        <texture>thumbs/bg_selected_event.png</texture>
+                        <visible>$EXP[IsDirectory]</visible>
+                    </control>
+                    <!-- Event Date -->
+                    <control type="image">
+                        <posx>100</posx>
+                        <posy>0</posy>
+                        <width>120</width>
+                        <height>120</height>
+                        <texture>thumbs/bg_selected_date.png</texture>
+                        <visible>!$EXP[IsDirectory]</visible>
+                    </control>
+                    <!-- Event -->
+                    <control type="image">
+                        <posx>230</posx>
+                        <posy>0</posy>
+                        <width>850</width>
+                        <height>120</height>
+                        <texture>thumbs/bg_selected_event.png</texture>
+                        <visible>!$EXP[IsDirectory]</visible>
+                    </control>
+                    <!-- === Event Layout === -->
+                    <include>ListView_Directory</include>
+                    <include>ListView_Teams</include>
+                    <include>ListView_Highlights</include>
+                </focusedlayout>
+            </control>
+        </control>
+    </include>
+
+    <!-- ======================================= -->
+    <!-- ==== Competition Fanart View "365" ==== -->
+    <!-- ======================================= -->
+    <include name="CompetitionView_VideoFiles">
+        <control type="group">
+            <visible>Control.IsVisible(365)</visible>
+            <include>InfoDialogsVisible_FadeAnimation</include>
+            <control type="wraplist" id="365">
+                <left>0</left>
+                <top>0</top>
+                <width>1280</width>
+                <height>720</height>
+                <onleft>65</onleft>
+                <onright>65</onright>
+                <onup>9111</onup>
+                <ondown>3606</ondown>
+                <oninfo condition="Container.Content(Sets) | String.StartsWith(ListItem.Path,videodb://movies/sets/)">
+                    RunScript(script.skin.helper.service,action=textviewer,header=$INFO[ListItem.Label],message='"$VAR[GlobalPlotDescription]"')
+                </oninfo>
+                <viewtype label="Competition Splash">Fanart</viewtype>
+                <pagecontrol>3606</pagecontrol>
+                <itemgap>0</itemgap>
+                <orientation>horizontal</orientation>
+                <scrolltime tween="quadratic" easing="out">350</scrolltime>
+                <preloaditems>2</preloaditems>
+                <focusposition>0</focusposition>
+                <visible>[Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Mixed)]</visible>
+                <itemlayout width="248" height="362"/>
+                <focusedlayout width="248" height="362"/>
+            </control>
+            <control type="image">
+                <left>170</left>
+                <top>480</top>
+                <width>390</width>
+                <height>150</height>
+                <fadetime>100</fadetime>
+                <aspectratio align="left" aligny="center">keep</aspectratio>
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                <animation type="WindowOpen">
+                    <effect type="fade" start="0" end="100" time="250" delay="380" tween="sine" easing="out"/>
+                </animation>
+                <animation type="WindowClose">
+                    <effect type="fade" start="100" end="0" time="350" tween="sine" easing="in"/>
+                </animation>
+            </control>
+            <control type="image">
+                <animation effect="slide" start="0,0" end="-340,0" time="380" tween="sine" easing="inout" condition="![Container.OnNext | Container.OnPrevious]" reversible="false">Conditional</animation>
+                <left>340</left>
+                <include>FullscreenDimensions</include>
+                <texture background="true">views/showtime/left_blade.png</texture>
+                <animation type="WindowOpen">
+                    <effect type="fade" start="0" end="100" time="490" tween="sine" easing="out"/>
+                    <effect type="slide" start="0,0" end="-340,0" time="390" delay="350" tween="sine" easing="out"/>
+                </animation>
+                <animation type="WindowClose">
+                    <effect type="slide" start="-340,0" end="0,0" time="490" delay="0" tween="sine" easing="in"/>
+                    <effect type="fade" start="100" end="0" time="490" delay="250" tween="sine" easing="in"/>
+                </animation>
+            </control>
+            <control type="image">
+                <animation effect="slide" start="0,0" end="260,0" time="380" tween="sine" easing="inout" condition="![Container.OnNext | Container.OnPrevious]" reversible="false">Conditional</animation>
+                <left>-260</left>
+                <include>FullscreenDimensions</include>
+                <texture background="true">views/showtime/right_blade.png</texture>
+                <animation type="WindowOpen">
+                    <effect type="fade" start="0" end="100" time="490" tween="sine" easing="out"/>
+                    <effect type="slide" start="0,0" end="260,0" time="390" delay="350" tween="sine" easing="out"/>
+                </animation>
+                <animation type="WindowClose">
+                    <effect type="slide" start="260,0" end="0,0" time="490" delay="0" tween="sine" easing="in"/>
+                    <effect type="fade" start="100" end="0" time="490" delay="250" tween="sine" easing="in"/>
+                </animation>
+            </control>
+            <control type="group">
+                <right>305</right>
+                <top>565</top>
+                <visible>!Container(365).OnNext + !Container(365).OnPrevious</visible>
+                <animation type="Visible" reversible="false">
+                    <effect type="zoom" start="85" end="100" center="160,540" time="380" tween="sine" easing="inout"/>
+                    <effect type="fade" start="0" end="100" time="200" />
+                </animation>
+                <animation type="Hidden" reversible="false">
+                    <effect type="zoom" start="100" end="85" center="160,540" time="380" tween="sine" easing="inout"/>
+                    <effect type="fade" start="100" end="0" time="200" />
+                </animation>
+                <animation type="WindowOpen">
+                    <effect type="fade" start="0" end="100" time="490" tween="sine" easing="out"/>
+                    <effect type="slide" start="0,0" end="260,0" time="390" delay="350" tween="sine" easing="out"/>
+                </animation>
+                <animation type="WindowClose">
+                    <effect type="slide" start="260,0" end="0,0" time="490" delay="0" tween="sine" easing="in"/>
+                    <effect type="fade" start="100" end="0" time="490" delay="250" tween="sine" easing="in"/>
+                </animation>
+                <control type="label">
+                    <right>0</right>
+                    <top>0</top>
+                    <height>45</height>
+                    <width>600</width>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>77000000</shadowcolor>
+                    <font>FontSize_38</font>
+                    <scroll>false</scroll>
+                    <align>right</align>
+                    <label>$VAR[ListItemLabel]</label>
+                </control>
+                <!-- Small Down Info -->
+                <control type="grouplist">
+                    <left>0</left>
+                    <top>45</top>
+                    <width>975</width>
+                    <align>right</align>
+                    <itemgap>6</itemgap>
+                    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>600</width>
+                        <align>right</align>
+                        <include>SmallDownInfo_SmallGlobalInfo</include>
+                    </control>
+                    <control type="image">
+                        <include>SmallDownInfo_OverlayUnWatched</include>
+                    </control>
+                    <control type="image">
+                        <include>SmallDownInfo_Def3DFlags</include>
+                    </control>
+                    <control type="image">
+                        <include>SmallDownInfo_Sets</include>
+                    </control>
+                    <control type="image">
+                        <include>SmallDownInfo_MPAATVFlags</include>
+                    </control>
+                    <include>SmallDownInfo_Top250</include>
+                </control>
+            </control>
+
+            <control type="scrollbar" id="3606">
+                <left>44</left>
+                <top>635</top>
+                <width>1190</width>
+                <height>6</height>
+                <texturesliderbar border="14,0,14,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbar>
+                <texturesliderbarfocus border="14,0,14,0">views/scrollbar/scrollbar_horizontal.png</texturesliderbarfocus>
+                <onup>65</onup>
+                <ondown>9555</ondown>
+                <showonepage>false</showonepage>
+                <orientation>horizontal</orientation>
+                <include>FanartFade</include>
+                <animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(3606) + !Container.Scrolling">Conditional</animation>
+            </control>
+        </control>
+    </include>
+
+    <!-- ================== -->
+    <!-- === Match list === -->
+    <!-- ================== -->
+    <!-- === Match Layout === -->
+    <include name="ListView_Teams">
+        <control type="group" id="4433">
+            <visible>String.IsEqual(Container(839).ListItem.Property(IsMatch),true)</visible>
+            <!-- === Event Date === -->
+            <control type="label">
+                <left>137</left>
+                <top>10</top>
+                <width>100</width>
+                <height>100</height>
+                <font>FontSize_18</font>
+                <textcolor>viewsinfo</textcolor>
+                <shadowcolor>77000000</shadowcolor>
+                <aligny>center</aligny>
+                <label fallback="@ @ @">$INFO[ListItem.Property(EventDate)]</label>
+                <visible>!ListItem.IsParentFolder</visible>
+            </control>
+            <!-- === Home Team emblem === -->
+            <control type="image">
+                <left>240</left>
+                <top>10</top>
+                <width>100</width>
+                <height>100</height>
+                <aligny>center</aligny>
+                <texture>$INFO[ListItem.Property(HomeTeamEmblemUrl)]</texture>
+            </control>
+            <!-- === Home Team name ==== -->
+            <control type="label">
+                <left>350</left>
+                <top>10</top>
+                <width>250</width>
+                <height>100</height>
+                <font>FontSize_22</font>
+                <textcolor>ddffffff</textcolor>
+                <shadowcolor>77000000</shadowcolor>
+                <focusedcolor>blue</focusedcolor>
+                <aligny>center</aligny>
+                <label fallback="| | |">$INFO[ListItem.Property(HomeTeam)]</label>
+                <visible>!ListItem.IsParentFolder</visible>
+            </control>
+            <!-- === Away Team name ==== -->
+            <control type="label">
+                <left>760</left>
+                <top>10</top>
+                <width>200</width>
+                <height>100</height>
+                <font>FontSize_22</font>
+                <textcolor>ddffffff</textcolor>
+                <shadowcolor>77000000</shadowcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label fallback="* * *">$INFO[ListItem.Property(AwayTeam)]</label>
+                <visible>!ListItem.IsParentFolder</visible>
+            </control>
+            <!-- === Away Team emblem === -->
+            <control type="image">
+                <left>970</left>
+                <top>10</top>
+                <width>100</width>
+                <height>100</height>
+                <aligny>center</aligny>
+                <texture>$INFO[ListItem.Property(AwayTeamEmblemUrl)]</texture>
+            </control>
+        </control>
+    </include>
+    <!-- === Highlight Show Layout === -->
+    <include name="ListView_Highlights">
+        <control type="group" id="4434">
+            <visible>String.IsEqual(Container(839).ListItem.Property(IsHighlight),true)</visible>
+
+            <!-- === Event Date === -->
+            <control type="label">
+                <left>137</left>
+                <top>10</top>
+                <width>100</width>
+                <height>100</height>
+                <font>FontSize_18</font>
+                <textcolor>viewsinfo</textcolor>
+                <shadowcolor>77000000</shadowcolor>
+                <aligny>center</aligny>
+                <label fallback="@ @ @">$INFO[ListItem.Property(EventDate)]</label>
+                <visible>!ListItem.IsParentFolder</visible>
+            </control>
+            <!-- === Competition Emblem === -->
+            <control type="image">
+                <left>240</left>
+                <top>10</top>
+                <width>100</width>
+                <height>100</height>
+                <aligny>center</aligny>
+                <texture>$INFO[ListItem.Art(thumb)]</texture>
+            </control>
+            <!-- === Show Title === -->
+            <control type="label">
+                <top>45</top>
+                <left>350</left>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>FontSize_22</font>
+                <textcolor>ddffffff</textcolor>
+                <shadowcolor>77000000</shadowcolor>
+                <label fallback="$$$">$INFO[ListItem.Label]</label>
+                <visible>!ListItem.IsParentFolder</visible>
+            </control>
+        </control>
+    </include>
+    <!-- === Directory Listing Layout === -->
+    <include name="ListView_Directory">
+        <control type="group">
+            <control type="label">
+                <top>45</top>
+                <left>0</left>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>FontSize_26</font>
+                <textcolor>viewsinfo</textcolor>
+                <shadowcolor>77000000</shadowcolor>
+                <label fallback="# # #">[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+                <visible>!String.IsEqual(ListItem.Property(IsHighlight),true) + !String.IsEqual(ListItem.Property(IsMatch),true)</visible>
+            </control>
+        </control>
+    </include>
+    <!-- === Competition Clearlogo == -->
+    <include name="CompetitionEmblem_View">
+        <control type="image">
+            <left>625</left>
+            <top>30</top>
+            <width>60</width>
+            <height>60</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <texture colordiffuse="66ffffff">$INFO[ListItem.Art(clearlogo)]</texture>
+            <visible>String.IsEqual(Container(839).ListItem.Property(IsMatch),true)</visible>
+        </control>
+    </include>
+
+    <expression name="IsDirectory">
+        !String.IsEqual(Container(839).ListItem.Property(IsHighlight),true) + !String.IsEqual(Container(839).ListItem.Property(IsMatch),true)
+    </expression>
+    <variable name="ViewHeight">
+        <value condition="$EXP[IsDirectory]">80</value>
+        <value condition="!$EXP[IsDirectory]">150</value>
+    </variable>
+</includes>
