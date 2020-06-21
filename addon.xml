@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.bellisimo.7" version="0.0.1a" name="Bellisimo 0.1" provider-name="Nessus">
+<addon id="skin.bellisimo.7" version="0.0.1a" name="Bellisimo 0.1" provider-name="Tomás Gray">
     <requires>
         <import addon="xbmc.gui" version="5.14.0"/>
         <import addon="script.skinshortcuts" version="1.0.17"/>
@@ -19,10 +19,10 @@
         <summary lang="da">En GUI til Kodi Media Center</summary>
         <summary lang="de">Ein GUI für das Kodi Media Center</summary>
         <summary lang="el">Ένα Γραφικό Περιβάλλον για το Κέντρο Πολυμέσων Kodi</summary>
-        <summary lang="en">A GUI for Kodi Media Center</summary>
-        <summary lang="en_AU">A GUI for Kodi Media Centre</summary>
-        <summary lang="en_NZ">A GUI for Kodi Media Centre</summary>
-        <summary lang="en_US">A GUI for Kodi Media Center</summary>
+        <summary lang="en">A (modified) GUI for Kodi Media Center</summary>
+        <summary lang="en_AU">A (modified) GUI for Kodi Media Centre</summary>
+        <summary lang="en_NZ">A (modified) GUI for Kodi Media Centre</summary>
+        <summary lang="en_US">A (modified) GUI for Kodi Media Center</summary>
         <summary lang="es">Una interfaz gráfica para Kodi</summary>
         <summary lang="fr">Un thème pour Kodi Media Center</summary>
         <summary lang="fr_CA">Une IUG pour le centre multimédia Kodi</summary>
@@ -57,21 +57,17 @@
             Στόχος του Bello 7 είναι να μεγιστοποιήσει την ψυχαγωγική σας εμπειρία μέσω του γρήγορου, μοναδικού και
             ενοποιημένου περιβάλλοντός του, που περιλαμβάνει όλες τις νέες λειτουργίες του Kodi.
         </description>
-        <description lang="en">This is the 7th generation of Bello skin for Kodi. Bello 7 is aiming to maximize your
-            Kodi entertainment experience with its NEW Unique, Clean and Elegant interface while providing users a
-            highly customization level and lots of cool features!
+        <description lang="en">Modified from the Bello skin, updated to include views for competitive events (sports),
+            and several other graphical enhancements.
         </description>
-        <description lang="en_AU">This is the 7th generation of Bello skin for Kodi. Bello 7 is aiming to maximize your
-            Kodi entertainment experience with its NEW Unique, Clean and Elegant interface while providing users a
-            highly customization level and lots of cool features!
+        <description lang="en_AU">Modified from the Bello skin, updated to include views for competitive events (sports), 
+            and several other graphical enhancements.
         </description>
-        <description lang="en_NZ">This is the 7th generation of Bello skin for Kodi. Bello 7 is aiming to maximize your
-            Kodi entertainment experience with its NEW Unique, Clean and Elegant interface while providing users a
-            highly customization level and lots of cool features!
+        <description lang="en_NZ">Modified from the Bello skin, updated to include views for competitive events (sports),
+            and several other graphical enhancements.
         </description>
-        <description lang="en_US">This is the 7th generation of Bello skin for Kodi. Bello 7 is aiming to maximize your
-            Kodi entertainment experience with its NEW Unique, Clean and Elegant interface while providing users a
-            highly customization level and lots of cool features!
+        <description lang="en_US">Modified from the Bello skin, updated to include views for competitive events (sports),
+            and several other graphical enhancements.
         </description>
         <description lang="es">Bello 7 es una interfaz gráfica para Kodi. La meta de Bello 7 es maximizar la experiencia
             de Kodi con su interfaz única, rápida y unificada y las últimas novedades de Kodi.
@@ -138,10 +134,10 @@
         <disclaimer lang="da">Mus understøttes ikke.</disclaimer>
         <disclaimer lang="de">Verwendung der Maus wird nicht unterstützt.</disclaimer>
         <disclaimer lang="el">Χωρίς υποστήριξη για ποντίκι.</disclaimer>
-        <disclaimer lang="en">Mouse usage is not supported.</disclaimer>
-        <disclaimer lang="en_AU">Mouse usage is not supported.</disclaimer>
-        <disclaimer lang="en_NZ">Mouse usage is not supported.</disclaimer>
-        <disclaimer lang="en_US">Mouse usage is not supported.</disclaimer>
+        <disclaimer lang="en">For personal use only.</disclaimer>
+        <disclaimer lang="en_AU">For personal use only.</disclaimer>
+        <disclaimer lang="en_NZ">For personal use only.</disclaimer>
+        <disclaimer lang="en_US">For personal use only.</disclaimer>
         <disclaimer lang="es">El uso de ratón no esta soportado.</disclaimer>
         <disclaimer lang="fr">L'utilisation de la souris n'est pas supportée.</disclaimer>
         <disclaimer lang="fr_CA">L'utilisation de la souris n'est pas prise en charge.</disclaimer>
